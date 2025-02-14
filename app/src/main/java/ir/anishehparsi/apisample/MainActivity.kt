@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
                         .statusBarsPadding()
                 ) { innerPadding ->
                     ProductListUi(
-                        modifier = Modifier.padding(innerPadding)  // استفاده از innerPadding برای محتوای داخلی
+                        modifier = Modifier.padding(innerPadding)
                     )
                 }
 

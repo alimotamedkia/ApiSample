@@ -1,5 +1,6 @@
 package ir.anishehparsi.apisample
 
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -24,7 +25,7 @@ import kotlinx.serialization.json.Json
 
 @Composable
 fun ProductListUi(modifier: Modifier = Modifier) {
-val context = LocalContext.current
+    val context = LocalContext.current
     var state by remember { mutableStateOf<List<Product>?>(null) }
 
     LaunchedEffect(key1 = Unit) {
@@ -35,9 +36,11 @@ val context = LocalContext.current
         }
 
         try {
-            state = client.get("https://fakestoreapi.com/products").body()
+            state = client.get("https://emojihub.yurace.pro/api/all").body()
+            Log.d("CoroutineTag", state.toString())
         } catch (e: Exception) {
-           val toast= Toast.makeText(context,"No Connection to INTERNET", Toast.LENGTH_LONG).show()
+            val toast =
+                Toast.makeText(context, "No Connection to INTERNET", Toast.LENGTH_LONG).show()
             state = emptyList()
         } finally {
             client.close()
@@ -46,7 +49,7 @@ val context = LocalContext.current
         }
     }
 
-    LazyColumn (Modifier.padding(16.dp)){
+    LazyColumn(Modifier.padding(16.dp)) {
         items(state ?: emptyList()) {
             ProductItemUi(item = it)
             HorizontalDivider()
