@@ -21,10 +21,12 @@ import coil.compose.AsyncImage
 
 @Composable
 fun ProductItemUi(modifier: Modifier = Modifier, item: Product) {
-    Row(modifier = Modifier.padding(16.dp),
-        verticalAlignment = Alignment.CenterVertically) {
+    Row(
+        modifier = Modifier.padding(16.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         AsyncImage(
-            modifier=Modifier.size(64.dp,80.dp),
+            modifier = Modifier.size(64.dp, 80.dp),
             contentScale = ContentScale.Crop,
             model = item.image,
             contentDescription = ""
@@ -32,7 +34,7 @@ fun ProductItemUi(modifier: Modifier = Modifier, item: Product) {
 
         Spacer(Modifier.width(12.dp))
 
-        Column (verticalArrangement = Arrangement.Center){
+        Column(verticalArrangement = Arrangement.Center) {
             Text(text = item.title)
             Spacer(modifier.height(4.dp))
             Text(text = "$ ${item.price}")
@@ -43,7 +45,8 @@ fun ProductItemUi(modifier: Modifier = Modifier, item: Product) {
                     contentDescription = ""
                 )
                 Spacer(Modifier.width(4.dp))
-                Text(text = item.rating.rate.toString())}
+                Text(text = item.rating.rate.toString())
+            }
         }
     }
 

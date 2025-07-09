@@ -36,7 +36,7 @@ fun ProductListUi(modifier: Modifier = Modifier) {
         }
 
         try {
-            state = client.get("https://emojihub.yurace.pro/api/all").body()
+            state = client.get("https://fakestoreapi.com/products").body()
             Log.d("CoroutineTag", state.toString())
         } catch (e: Exception) {
             val toast =
